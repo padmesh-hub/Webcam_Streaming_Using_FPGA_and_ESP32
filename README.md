@@ -126,44 +126,13 @@ python host/webcam.py --preview          # local preview window (adds latency)
 
 **Behavioral simulation:** Testbenches in `sim/` check `SPI_Rx` byte reception, `FSM_8to16` pixel packing and the write and read address counters.
 
-**Hardware bring-up:** VGA timing was verified with a test pattern first, then the colour-bar test mode (`--test`) was used to validate the SPI path before switching to the live webcam.
-
-<!-- add waveform screenshots in docs/ and link them here -->
-
 ## Results
 
-<!-- add a photo or GIF of the live webcam feed on the monitor -->
+<img width="548" height="412" alt="test_image" src="https://github.com/user-attachments/assets/995b0247-9862-4d8d-9487-a46b18b5bb43" />
 
-| Metric | Value |
-|---|---|
-| Resolution | 160x120 (displayed on a 640x480 VGA output) |
-| Target frame rate | 30 fps |
-| Measured frame rate | `<fill in from the script's fps print>` |
-| SPI clock | 20 MHz |
-| Pixel format | RGB444 (12-bit) |
 
-Resource utilization from the Vivado report:
+## Resource utilization from the Vivado report:
 
-| LUTs | FFs | BRAM |
-|---|---|---|
-| `<fill in>` | `<fill in>` | `<fill in>` |
+<img width="486" height="355" alt="Screenshot 2026-10-30 233722" src="https://github.com/user-attachments/assets/edacad9e-5504-44b3-ab83-3fdb0ffa7c59" />
 
-## Limitations
 
-- UDP has no retransmission, so lost or dropped packets cause missing lines in a frame. The ESP32 serial output counts dropped and malformed packets.
-- Frame rate and stability depend on the Wi-Fi environment and the pacing gap between packets (`--gap-us`).
-- Resolution is limited to 160x120 by the Wi-Fi/SPI bandwidth and the packet format.
-
-## Future Work
-
-- Replace the laptop and ESP32 path with direct capture from an **OV7670** camera into the FPGA.
-- Add on-FPGA filters such as grayscale and edge detection.
-- Add double buffering to remove tearing.
-
-## Development Note
-
-This project's focus is the FPGA design. The Verilog RTL, simulation and hardware bring-up are my own work. The PC-side Python script (`webcam.py`) and the ESP32 firmware (`esp32_spi_bridge.ino`) were generated with AI assistance (Claude) so I could concentrate on the FPGA pipeline. I reviewed them and tested them on the hardware.
-
-## Acknowledgements
-
-Built under IvLabs, VNIT Nagpur, with guidance from our mentor.
