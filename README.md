@@ -2,10 +2,6 @@
 
 Real-time webcam streaming to a **Basys 3 (Artix-7)** FPGA. A laptop captures webcam frames and sends them over Wi-Fi (UDP) to an **ESP32**, which forwards them to the FPGA over **SPI**. The FPGA stores each frame in block RAM and outputs it to a VGA monitor.
 
-Built under **IvLabs, VNIT Nagpur**.
-
-Team Members: <!-- add names -->
-
 ## Project Overview
 
 ```
