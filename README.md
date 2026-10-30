@@ -7,6 +7,8 @@ Real-time webcam streaming to a **Basys 3 (Artix-7)** FPGA. A laptop captures we
 ```
 Webcam -> webcam.py (PC) --UDP/Wi-Fi--> ESP32 --SPI--> Basys 3 FPGA --VGA--> Monitor
 ```
+<img width="1532" height="805" alt="Screenshot 2026-10-30 221407" src="https://github.com/user-attachments/assets/fb485090-491a-4efb-a486-03a1140ad73c" />
+
 
 The focus of this project is the FPGA side: SPI reception, pixel packing, dual-port frame buffering and VGA output, all written in Verilog. The PC script and ESP32 firmware are supporting tools that deliver the data (see the Development Note below).
 
